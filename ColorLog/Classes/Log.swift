@@ -10,7 +10,7 @@
 import Foundation
 
 // Possible levels of log messages to log
-public enum LogLevelChoices: Int {
+public enum LogLevel: Int {
     case DEBUG = 1
     case INFO = 2
     case WARN = 3
@@ -19,11 +19,11 @@ public enum LogLevelChoices: Int {
     case TEST = 6
 }
 
-class Log {
+public class Log {
     private init() {}
     
     // Specify which types of log messages to display. Default level is set to WARN, which means Log will print any log messages of type only WARN, ERROR, MONITOR, and TEST. To print DEBUG and INFO logs, set the level to a lower value.
-    public static var logLevel: LogLevelChoices = LogLevelChoices.WARN
+    public static var logLevel: LogLevel = LogLevel.WARN
     
     /**
      Used for when you're doing tests. Testing log should be removed before commiting
@@ -40,7 +40,7 @@ class Log {
      */
     public static func test(_ logMessage: Any, classPath: String = #file, functionName: String = #function, lineNumber: Int = #line) {
         let fileName = URLUtil.getNameFromStringPath(classPath)
-        if logLevel.rawValue <= LogLevelChoices.TEST.rawValue {
+        if logLevel.rawValue <= LogLevel.TEST.rawValue {
             print("\(Date().timeStamp()) TEST  ❇️❇️❇️❇️ in \(fileName):\(functionName):\(lineNumber):: \(logMessage)")
         }
     }
@@ -60,7 +60,7 @@ class Log {
      */
     public static func error(_ logMessage: Any, classPath: String = #file, functionName: String = #function, lineNumber: Int = #line) {
         let fileName = URLUtil.getNameFromStringPath(classPath)
-        if logLevel.rawValue <= LogLevelChoices.ERROR.rawValue {
+        if logLevel.rawValue <= LogLevel.ERROR.rawValue {
             print("\(Date().timeStamp()) ERROR 🛑🛑🛑🛑 in \(fileName):\(functionName):\(lineNumber):: \(logMessage)")
         }
     }
@@ -80,7 +80,7 @@ class Log {
      */
     public static func monitor(_ logMessage: Any, classPath: String = #file, functionName: String = #function, lineNumber: Int = #line) {
         let fileName = URLUtil.getNameFromStringPath(classPath)
-        if logLevel.rawValue <= LogLevelChoices.ERROR.rawValue {
+        if logLevel.rawValue <= LogLevel.ERROR.rawValue {
             print("\(Date().timeStamp()) MONITOR 🔥🔥🔥🔥 in \(fileName):\(functionName):\(lineNumber):: \(logMessage)")
         }
     }
@@ -100,7 +100,7 @@ class Log {
      */
     public static func warn(_ logMessage: Any, classPath: String = #file, functionName: String = #function, lineNumber: Int = #line) {
         let fileName = URLUtil.getNameFromStringPath(classPath)
-        if logLevel.rawValue <= LogLevelChoices.WARN.rawValue {
+        if logLevel.rawValue <= LogLevel.WARN.rawValue {
             print("\(Date().timeStamp()) WARN  ⚠️⚠️⚠️⚠️ in \(fileName):\(functionName):\(lineNumber):: \(logMessage)")
         }
     }
@@ -120,7 +120,7 @@ class Log {
      */
     public static func info(_ logMessage: Any, classPath: String = #file, functionName: String = #function, lineNumber: Int = #line) {
         let fileName = URLUtil.getNameFromStringPath(classPath)
-        if logLevel.rawValue <= LogLevelChoices.INFO.rawValue {
+        if logLevel.rawValue <= LogLevel.INFO.rawValue {
             print("\(Date().timeStamp()) INFO  🖤🖤🖤🖤 in \(fileName):\(functionName):\(lineNumber):: \(logMessage)")
         }
     }
@@ -140,7 +140,7 @@ class Log {
      */
     public static func debug(_ logMessage: Any, classPath: String = #file, functionName: String = #function, lineNumber: Int = #line) {
         let fileName = URLUtil.getNameFromStringPath(classPath)
-        if logLevel.rawValue <= LogLevelChoices.DEBUG.rawValue {
+        if logLevel.rawValue <= LogLevel.DEBUG.rawValue {
             print("\(Date().timeStamp()) DEBUG 🐝🐝🐝🐝 in \(fileName):\(functionName):\(lineNumber):: \(logMessage)")
         }
     }
