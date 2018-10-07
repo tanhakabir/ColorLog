@@ -1,0 +1,6 @@
+framework module ColorLog {
+  umbrella header "ColorLog-umbrella.h"
+
+  export *
+  module * { export * }
+}

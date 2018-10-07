@@ -1,0 +1,16 @@
+PODS:
+  - ColorLog (0.1.0)
+
+DEPENDENCIES:
+  - ColorLog (from `../`)
+
+EXTERNAL SOURCES:
+  ColorLog:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ColorLog: 1109e844973d1b44a981cc4ffeef805433ccb240
+
+PODFILE CHECKSUM: 84b1425d40e4342601a9282ff69c431038bc8ea3
+
+COCOAPODS: 1.5.3
